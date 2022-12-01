@@ -1,91 +1,22 @@
 from datetime import date
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from webdriver_manager.chrome import ChromeDriverManager
 from dateToEpoch import insertDate
 from daysNumber import daysNumber
+from data_customer import data_cust
 import time
 import os
 
 
 # driver.get('chrome://settings/clearBrowserData')
 # driver = webdriver.Chrome('/Users/regy/automator/bot/chromedriver', options=chromeOptions)
-data = {
-    '1' : {
-        'cid' : 8254,
-        'nameService' : 'PGAS.VAL.33.01#1'
-    }
-}
-
+data = data_cust
 def cactiScrapper(selection, year, month, dateStart, dateEnd, createWholeMonth = 0):
     cid = data[selection]['cid']
     nameService = data[selection]['nameService']
-    # if selection == 1 :
-    #     cid = 8254
-    # if selection == 2 :
-    #     cid = 10022
-    # if selection == 3 :
-    #     cid = 11301
-    # if selection == 4 :
-    #     cid = 11356
-    # if selection == 5 :
-    #     cid = 10690
-    # if selection == 6 :
-    #     cid = 11213
-    # if selection == 7: 
-    #     cid = 11211
-    # if selection == 8: 
-    #     cid = 11357
-    # if selection == 9: 
-    #     cid = 7424
-    # if selection == 10: 
-    #     cid = 8381 
-    # if selection == 11:
-    #     cid = 11869
-    # if selection == 12:
-    #     cid = 11872
-    # if selection == 13:
-    #     cid = 10046
-    # if selection == 14:
-    #     cid = 9502
-    # if selection == 15:
-    #     cid = 11953
-
-    # Define the name by cid:
-    # if cid == 8254: #1
-    #     nameService = 'PGAS.VAL.33.01#1'
-    # if cid == 10022: #2
-    #     nameService = 'PGAS.VAL.33.01#2'
-    # if cid == 11301: #3
-    #     nameService = 'PGAS.VAL.33.04' # HE#2
-    # if cid == 11356: #4
-    #     nameService = 'PGAS.VAL.43.01'
-    # if cid == 10690: #5
-    #     nameService = 'PGAS.VAL.43.02'
-    # if cid == 11213: #6
-    #     nameService = 'PGAS.VAL.43.03'
-    # if cid == 11211: #7
-    #     nameService = 'PGAS.VAL.43.04'
-    # if cid == 11357: #8
-    #     nameService = 'PGAS.VAL.43.05'
-    # if cid == 7424: #9
-    #     nameService = 'NTT'
-    # if cid == 8381: #10
-    #     nameService = 'TELIA'
-    # if cid == 11869: #11
-    #     nameService = 'PGAS.VAL.33.05' # HE#3
-    # if cid == 11872: #12
-    #     nameService = 'PGAS.VAL.33.06' # HE#4
-    # if cid == 10046: #13
-    #     nameService = 'PCCW'
-    # if cid == 9502: #14
-    #     nameService = 'TATA'
-    # if cid == 11953: #15
-    #     nameService = 'PGAS.VAL.43.06'
 
     print('Your selection is {selection}, for year {year}/{month} from {dateStart} to {dateEnd}'.format(selection = nameService, year = year, month = month, dateStart = dateStart, dateEnd = dateEnd))
     confirm = input('continue? ')
@@ -140,6 +71,7 @@ def cactiScrapper(selection, year, month, dateStart, dateEnd, createWholeMonth =
             time.sleep(1)
             file.write(img.screenshot_as_png)
             print('{nameService} date of {date} is completed.'.format(nameService = nameService, date = dateEnd + 1))
+
 
 
 # NTT
