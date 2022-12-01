@@ -28,6 +28,6 @@ while True:
         break
     if event == 'Submit':
         # sg.popup('Not a registerd user, please recheck your credential') if value['uname'] == '0' else 'bbye'
-        # cactiScrapper(value['selection'], 2022, 11, 1, 2, 0)
-        print(data[value['selection']])
+        cactiScrapper(value['selection'], 2022, 11, 1, 2, 0)
+        # print(data[value['selection']])
         
