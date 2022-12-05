@@ -54,6 +54,7 @@ data_cust = {
 }
 
 history_data = {
+
  'content' : # if selection == 1 :
     #     cid = 8254
     # if selection == 2 :
@@ -118,3 +119,26 @@ history_data = {
     #     nameService = 'PGAS.VAL.43.06' 
     ''
 }
+
+
+month = {
+    'January' : 1,
+    'February' : 2,
+    'March' : 3,
+    'April' : 4,
+    'May' : 5,
+    'June' : 6,
+    'July' : 7,
+    'August' : 8,
+    'September' : 9,
+    'October' : 10,
+    'November' : 11,
+    'December' : 12,
+}
+# for n in data_cust:
+#     if 'PGAS.VAL.43.06' == data_cust[n]['nameService']:
+#         print(n)
+    # print('\''+ data_cust[n]['nameService']+'\',')
+
+# for n in month:
+#     print(month[n])

@@ -19,9 +19,9 @@ def cactiScrapper(selection, year, month, dateStart, dateEnd, createWholeMonth =
     nameService = data[selection]['nameService']
 
     print('Your selection is {selection}, for year {year}/{month} from {dateStart} to {dateEnd}'.format(selection = nameService, year = year, month = month, dateStart = dateStart, dateEnd = dateEnd))
-    confirm = input('continue? ')
-    if confirm == 'n':
-        exit()
+    # confirm = input('continue? ')
+    # if confirm == 'n':
+    #     exit()
 
     os.environ['WDM_LOG'] = '0'
     chromeOptions = Options()
@@ -60,7 +60,7 @@ def cactiScrapper(selection, year, month, dateStart, dateEnd, createWholeMonth =
 
     # Scrap a graph from the first until end of month
     start = insertDate(year,month,1)[0]
-    end = insertDate(year,month,30)[1]
+    end = insertDate(year,month,daysNumber(year, month))[1]
 
     if createWholeMonth == 1:
         end = insertDate(year,month,daysNumber(year, month))[1]
@@ -75,7 +75,7 @@ def cactiScrapper(selection, year, month, dateStart, dateEnd, createWholeMonth =
 
 
 # NTT
-# cactiScrapper(9, 2022, 9, 1, daysNumber(2022, 9), 1)
+# cactiScrapper(9, 2022, 9, 1, 2, 1)
 
 # # PCCW
 # cactiScrapper(13, 2022, 10, 1, daysNumber(2022, 10), 1)
