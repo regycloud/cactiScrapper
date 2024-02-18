@@ -30,11 +30,10 @@ def cactiScrapper(selection, year, month, dateStart, dateEnd, createWholeMonth =
     driver = webdriver.Chrome('./chromedriver', options=chromeOptions)
 
     # Access MRTG site
-    driver.get("http://customer.pgascom.co.id/cacti/")
+    # driver.get("web_address")
 
     # login
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="user_row"]/td[2]/input'))).send_keys("pgasint")
-    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="password_row"]/td[2]/input'))).send_keys("pgasint1234")
     WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="login"]/tbody/tr[8]/td/input'))).click()
 
     # do the repetition
